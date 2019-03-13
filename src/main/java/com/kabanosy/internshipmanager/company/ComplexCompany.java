@@ -18,4 +18,6 @@ class ComplexCompany {
 
     private BigDecimal budget;
 
+    private CompanyHeadquarters companyHeadquarters;
+
 }

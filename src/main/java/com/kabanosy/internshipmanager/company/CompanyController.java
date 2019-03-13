@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 @RequestMapping("/company")
 public class CompanyController {
 
+
     @GetMapping
     public ResponseEntity<String> getSimpleCompany() {
 
@@ -21,7 +22,16 @@ public class CompanyController {
 
     @GetMapping(value = "/complex")
     public ComplexCompany getComplexCompany() {
-        return ComplexCompany.builder().budget(new BigDecimal(10)).employeesCount(10L).name("complexName").build();
+        return ComplexCompany.builder()
+                .budget(new BigDecimal(10))
+                .employeesCount(10L)
+                .name("complexName")
+                .companyHeadquarters(CompanyHeadquarters.builder()
+                        .address("simpleAddress")
+                        .name("headquartersName")
+                        .postalCode("61-854")
+                        .build())
+                .build();
     }
 
 }
